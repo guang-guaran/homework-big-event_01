@@ -14,3 +14,19 @@ axios.interceptors.request.use(function (config) {
 }, function (error) {
   return Promise.reject(error)
 })
+
+// 设置响应拦截器 禁止用户强制跳转
+axios.interceptors.response.use(function (response) {
+  // console.log(response)
+  if (response.data.message == '身份认证失败！') {
+    // 移除 token 
+    localStorage.removeItem('token')
+    // 跳转到登录页面
+    setTimeout(() => {
+      window.parent.location.href = '/login.html'
+    }, 1000);
+  }
+  return response
+}, function (error) {
+  return Promise.reject(error)
+})

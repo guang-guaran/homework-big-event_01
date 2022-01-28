@@ -10,6 +10,7 @@ jQuery(function () {
     }, function (index) {
       //do something
       // 移除 token 
+      layer.msg('退出成功!')
       localStorage.removeItem('token')
       // 跳转到登录页面
       setTimeout(() => {
@@ -41,7 +42,7 @@ function renderAvatar(user) {
   $('.welcome').html('欢迎 ' + name)
 
   if (user.user_pic) {
-    $('.layui-nav-img'), show().prop('src', user.user_pic)
+    $('.layui-nav-img').show().prop('src', user.user_pic)
     $('.avatar-text').hide()
   } else {
     $('.layui-nav-img').hide()
