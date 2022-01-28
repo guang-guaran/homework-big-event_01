@@ -10,6 +10,7 @@ jQuery(function () {
     }, function (index) {
       //do something
       // 移除 token 
+      layer.msg('退出成功!')
       localStorage.removeItem('token')
       // 跳转到登录页面
       setTimeout(() => {
